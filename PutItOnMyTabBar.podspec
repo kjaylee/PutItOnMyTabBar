@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'PutItOnMyTabBar'
-  s.version          = '1.2'
+  s.version          = '1.2.1'
   s.summary          = 'A subclass of UITabBarController that is customizable.'
 
 # This description is used to generate tags and improve search results.
@@ -28,7 +28,7 @@ A subclass of UITabBarController that is customizable.  May have 2 to however ma
   s.source           = { :git => 'https://github.com/jnwagstaff/PutItOnMyTabBar.git', :branch => "master", :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '10.0'
+  s.ios.deployment_target = '9.0'
 
   s.source_files = 'PutItOnMyTabBar/Classes/**/*'
   
