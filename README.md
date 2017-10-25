@@ -30,6 +30,7 @@
 - Easy to implement
 - Change slider width and height
 - Change colors of any element 
+- Selectable tabbar position(top or bottom) 
 
 ## Installation
 
