@@ -123,7 +123,7 @@ class CustomTabBar: UIView {
             ])
     }
     
-    func barItemTapped(_ sender : UIButton) {
+    @objc func barItemTapped(_ sender : UIButton) {
         let index = tabStack.arrangedSubviews.index(of: sender.superview!)!
         
         unhighlightPrevious(index: previousIndex)

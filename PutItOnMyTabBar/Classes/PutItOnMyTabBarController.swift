@@ -75,8 +75,12 @@ open class PutItOnMyTabBarController: UITabBarController, CustomTabBarDelegate {
     }
     
     func didSelectViewController(_ tabBarView: CustomTabBar, atIndex index: Int) {
-        let gen = UIImpactFeedbackGenerator(style: .light)
-        gen.impactOccurred()
+        if #available(iOS 10.0, *) {
+            let gen = UIImpactFeedbackGenerator(style: .light)
+            gen.impactOccurred()
+        } else {
+            // Do nothing...
+        }
         selectedIndex = index
     }
     
