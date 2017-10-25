@@ -18,6 +18,21 @@ open class PutItOnMyTabBarController: UITabBarController, CustomTabBarDelegate {
         case top
     }
     
+    @IBInspectable var isTop: Bool
+        {
+        set{
+            if newValue {
+                self.position = .top
+            }else {
+                self.position = .bottom
+            }
+        }
+        
+        get{
+            return self.position == .top
+        }
+    }
+    
     public var position :Position = .bottom
     lazy var constraints: Array<NSLayoutConstraint> = []
     
