@@ -119,29 +119,40 @@ open class PutItOnMyTabBarController: UITabBarController, CustomTabBarDelegate {
     
     // MARK: Optional Overrides
     
+    @IBInspectable var iBackgroundColor: UIColor = UIColor.white
+    @IBInspectable var iSliderColor: UIColor = UIColor.clear
+    @IBInspectable var iSliderHeightMultiplier: CGFloat = 0.1
+    @IBInspectable var iSliderWidthMultiplier: CGFloat = 1.0
+    @IBInspectable var iAnimationDuration: Double = 0.35
+    @IBInspectable var normalTitleColor: UIColor = .white
+    @IBInspectable var selectedTitleColor: UIColor = .white
+    @IBInspectable var iFontForTitles: UIFont = UIFont.systemFont(ofSize: 10)
+    
+    
+    
     // Gives Background to Tab Bar - Default is white
     open func backgroundColor() -> UIColor{
-        return .white
+        return iBackgroundColor
     }
     
     // Optional Slider View that moves to selected Tab - Default is clear
     open func sliderColor() -> UIColor {
-        return .clear
+        return iSliderColor
     }
     
     // Sets the height of a slider as a percentage of the total tab bar height - Default is 10%
     open func sliderHeightMultiplier() -> CGFloat {
-        return 0.1
+        return iSliderHeightMultiplier
     }
     
     // Sets the sliders width as a percentage of each tab bars width - Default is 100%
     open func sliderWidthMultiplier() -> CGFloat {
-        return 1.0
+        return iSliderWidthMultiplier
     }
     
     // Sets the animation duration for the slider default is 0.35
     open func animationDuration() -> Double {
-        return 0.35
+        return iAnimationDuration
     }
     
     // MARK: Titles Defaults to none
@@ -154,11 +165,11 @@ open class PutItOnMyTabBarController: UITabBarController, CustomTabBarDelegate {
     }
     
     open func titleColors() -> (UIColor, UIColor) {
-        return (.white, .white)
+        return (normalTitleColor, selectedTitleColor)
     }
     
     open func fontForTitles() -> UIFont {
-        return UIFont.systemFont(ofSize: 10)
+        return iFontForTitles
     }
 
 }
