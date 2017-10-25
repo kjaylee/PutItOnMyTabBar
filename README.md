@@ -38,7 +38,7 @@
 You can use [CocoaPods](http://cocoapods.org/) to install `PutItOnMyTabBar` by adding it to your `Podfile`:
 
 ```ruby
-pod 'PutItOnMyTabBar', :git => 'https://github.com/kjaylee/PutItOnMyTabBar.git', :tag => '1.2.1' 
+pod 'PutItOnMyTabBar', :git => 'https://github.com/kjaylee/PutItOnMyTabBar.git'
 ```
 ## Example
 
