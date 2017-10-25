@@ -13,22 +13,62 @@ open class PutItOnMyTabBarController: UITabBarController, CustomTabBarDelegate {
     // MARK: - View
     var customTabBar = CustomTabBar()
     
+    public enum Position {
+        case bottom
+        case top
+    }
+    
+    public var position :Position = .bottom
+    lazy var constraints: Array<NSLayoutConstraint> = []
+    
+    
+    public init(_ initPosition: Position) {
+        self.position = initPosition
+        super.init(nibName:nil, bundle:nil)
+    }
+    
+    
+    public convenience init() {
+        self.init(.bottom)
+    }
+    
+    required public init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
     override open func viewDidLoad() {
         super.viewDidLoad()
         layoutView()
     }
     
+
     // MARK: - Initial Setup
     func layoutView(){
         view.addAutoLayoutSubview(customTabBar)
+        constraints.append(contentsOf: [customTabBar.leftAnchor.constraint(equalTo: view.leftAnchor),
+                                        customTabBar.rightAnchor.constraint(equalTo: view.rightAnchor),
+                                        customTabBar.heightAnchor.constraint(equalTo: tabBar.heightAnchor)])
         
-        NSLayoutConstraint.activate([
-            customTabBar.leftAnchor.constraint(equalTo: view.leftAnchor),
-            customTabBar.rightAnchor.constraint(equalTo: view.rightAnchor),
-            customTabBar.heightAnchor.constraint(equalTo: tabBar.heightAnchor),
-            customTabBar.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-            ])
-       
+        switch position {
+        case .top:
+            if #available(iOS 11.0, *) {
+                constraints.append(customTabBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor))
+            } else {
+                constraints.append(customTabBar.topAnchor.constraint(equalTo: topLayoutGuide.topAnchor))
+            }
+            break
+        default:
+            if #available(iOS 11.0, *) {
+                constraints.append(customTabBar.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor))
+            } else {
+                constraints.append(customTabBar.bottomAnchor.constraint(equalTo: view.bottomAnchor))
+            }
+            break
+            
+        }
+        NSLayoutConstraint.activate(constraints)
+        tabBar.isHidden = true
+        
         customTabBar.delegate = self
         customTabBar.setup()
         customTabBar.highlightSelected(index: 0)

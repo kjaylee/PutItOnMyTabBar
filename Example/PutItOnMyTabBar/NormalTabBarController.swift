@@ -10,9 +10,11 @@ import UIKit
 import PutItOnMyTabBar
 
 class NormalTabBarController : PutItOnMyTabBarController {
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //self.position = .top
         
         //Home Tab
         let home = HomeViewController()
@@ -48,7 +50,7 @@ class NormalTabBarController : PutItOnMyTabBarController {
     }
     
     override func highLightedImages() -> [UIImage] {
-        return [#imageLiteral(resourceName: "homeSelected"), #imageLiteral(resourceName: "excursionSelected"), #imageLiteral(resourceName: "recordSelected"), #imageLiteral(resourceName: "mapSelected"), #imageLiteral(resourceName: "tackleSelected")]
+        return [#imageLiteral(resourceName: "homeSelected"), #imageLiteral(resourceName: "excursionSelected"), #imageLiteral(resourceName: "recordSelected"), #imageLiteral(resourceName: "mapSelected"), #imageLiteral(resourceName: "tackleSelected") ]
     }
     
     override func unHighlightedImages() -> [UIImage] {
